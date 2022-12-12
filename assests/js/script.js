@@ -4,32 +4,31 @@
         //for each loop create a html time block row including a time text area and save button.
             //Append time block to container 
                 //Hour
+                //Increase hour by one
                     //A number corresponding with the hour in 12hr formats
                 //Textarea
                 //Show exisiting event text if any
                 //Save button
                     //When clicked store/reset the event that matches w/hour to localStorage
-            //Increase hour by one
             //Check if hour is past, current or future and apply corresponding css class to time-block.
 
 
 //GLOBALS
 var mainEl = $('.container');
-var startWorkDay = moment(9, 'hA');
+var startWorkDay = moment(09, 'h A');
 // console.log(startWorkDay);
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
 $('#currentDay').text(currentD);
 
-//APPENDING FIRST ROW
-mainEl.append(`<div class='row time-block'>`+`${startWorkDay.format('hh A')}`+`</div>`)
 
 //TIME-BLOCK LOOP
-    while (startWorkDay.hour() < 17) {
-        startWorkDay.add(1, 'hours')
+    while (startWorkDay.hour() < 18) {
         mainEl.append(
-            `<div class=row time-block>`+`${startWorkDay.format('h A')}`+`</div>`)
+            `<div class='row time-block'>`+`${startWorkDay.format('h A')}`+`</div>`)
+        startWorkDay.add(1, 'hours')
     }
-    
 
+    
+//APPEND ITEMS TO TIME BLOCK USING CSS CLASS SELECTORS
