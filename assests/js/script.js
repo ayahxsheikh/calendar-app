@@ -16,7 +16,7 @@
 //GLOBALS
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'HHA');
-console.log(startWorkDay);
+// console.log(startWorkDay);
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
@@ -25,7 +25,8 @@ $('#currentDay').text(currentD);
 //TIME-BLOCK LOOP
     while (startWorkDay.hour() < 18) {
         startWorkDay.add(1, 'hours')
-        mainEl.append(`<div class=row time-block>`+`${startWorkDay}`+`</div>`)
+        mainEl.append(
+            `<div class=row time-block>`+`${startWorkDay.format('HH A')}`+`</div>`)
     }
     
 
