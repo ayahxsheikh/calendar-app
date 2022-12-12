@@ -15,7 +15,7 @@
 
 //GLOBALS
 var mainEl = $('.container');
-var startWorkDay = moment(09, 'h A');
+var startWorkDay = moment(09, 'HH A');
 // console.log(startWorkDay);
 
 //CURRENT DAY
@@ -26,9 +26,33 @@ $('#currentDay').text(currentD);
 //TIME-BLOCK LOOP
     while (startWorkDay.hour() < 18) {
         mainEl.append(
-            `<div class='row time-block'>`+`${startWorkDay.format('h A')}`+`</div>`)
+            "<div class='row time-block'>"+`${startWorkDay.format('HH A')}`+`</div>`)
         startWorkDay.add(1, 'hours')
     }
 
     
 //APPEND ITEMS TO TIME BLOCK USING CSS CLASS SELECTORS
+//hour to time-block
+$('.time-block').append("<div class='hour'></div>");
+$('.time-block').append("<textarea class='description'></textarea>");
+$('.time-block').append("<button class='saveBtn'></button>");
+
+//ASSIGN VARS TO CLASS SELECTORS
+var timeBl = $('.time-block');
+
+
+//CHECKING CURRENT TIME:
+/*
+var now = moement().format('HH A')
+var hour =
+
+    if (hour < now){
+        textarea.addClass('.past');
+
+    } else if (hour > now){
+        textarea.addClass(.future)
+
+    } else hour = textarea.addClass('.present')
+
+*/
+
