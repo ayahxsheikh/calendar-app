@@ -15,36 +15,34 @@
 
 //GLOBALS
 var mainEl = $('.container');
-var startWorkDay = moment(09, 'HH A');
-// console.log(startWorkDay);
+var startWorkDay = moment(09, 'h A');
 
-//CURRENT DAY
+
+// //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
 $('#currentDay').text(currentD);
 
 
-//TIME-BLOCK LOOP
-    while (startWorkDay.hour() < 18) {
-        mainEl.append(
-            "<div class='row time-block'>"+`${startWorkDay.format('HH A')}`+`</div>`)
-        startWorkDay.add(1, 'hours')
+// CREATE TIME BLOCK 
+// created html elements inside the timeblock 
+// created a div inside the time block and then created multiple elements inside the parent time-block div
+// append parent div to container
+
+while (startWorkDay.hour() < 18) {
+    var timeBLock = '<div class="row time-block">'+
+        '<div class="col-md-1 hour">'+startWorkDay.format('h A')+'</div>'
+        +'<textarea class="col-md-10 description">'+'</textarea>'
+        +'<button class="col-md-1 saveBtn">'+'</button>'+
+        '</div>'
+
+        mainEl.append(timeBLock);
+        startWorkDay.add(1, 'hours');
     }
-
-    
-//APPEND ITEMS TO TIME BLOCK USING CSS CLASS SELECTORS
-//hour to time-block
-$('.time-block').append("<div class='hour'></div>");
-$('.time-block').append("<textarea class='description'></textarea>");
-$('.time-block').append("<button class='saveBtn'></button>");
-
-//ASSIGN VARS TO CLASS SELECTORS
-var timeBl = $('.time-block');
-
 
 //CHECKING CURRENT TIME:
 /*
 var now = moement().format('HH A')
-var hour =
+var hour = 
 
     if (hour < now){
         textarea.addClass('.past');
