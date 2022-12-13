@@ -3,6 +3,7 @@
 //GLOBALS
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
+var timer = 0;
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
@@ -43,19 +44,19 @@ while (startWorkDay.hour() < 18) {
     
 //BUTTON
     var button = $('.saveBtn');
-   button.on('click', storeItem);
-
-
-// SAVE TO LOCAL STORAGE
-function storeItem(){
-    //created vars to reference the value of textarea and the id of startWorkDay hour -- targetting them using $(this) 
-    var text = $(this).siblings('textarea').val();
-    console.log(text)
+    button.on('click', storeItem);
+    
+    
+    // SAVE TO LOCAL STORAGE
+    function storeItem(){
+        //created vars to reference the value of textarea and the id of startWorkDay hour -- targetting them using $(this) 
+        var text = $(this).siblings('textarea').val();
+        console.log(text)
     var hour = $(this).parent().attr('id');
 
     //text and idHour are vars: no need for strings
     localStorage.setItem(hour, text);
-   
+    displayMessage();
 }
 
 // DISPLAY text saved to localStorage:
@@ -63,7 +64,10 @@ $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
 
 
 // SET TIMEOUT
-var displayMessage = setTimeout(function(){
+function displayMessage(){
+    $('#display').show();
+    setTimeout(function (){
+    $('#display').hide();
+    },2000);
 
-},3000)
-
+}
