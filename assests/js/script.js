@@ -60,7 +60,10 @@ while (startWorkDay.hour() < 18) {
 
 // SAVE TO LOCAL STORAGE
 function storeItem(){
-    
+    //targeting the value of textarea and the id of startWorkDay hour using $(this) 
+    var text = $(this).siblings('textarea').val();
+    console.log(text)
+    var idhour = $(this).parent().attr('id');
 }
 
 
