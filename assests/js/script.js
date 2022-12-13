@@ -1,17 +1,4 @@
 
-//for every hour from 9-5, create a time block row
-    //while loop that loops starting at 9 and breaks at 5
-        //for each loop create a html time block row including a time text area and save button.
-            //Append time block to container 
-                //Hour
-                //Increase hour by one
-                    //A number corresponding with the hour in 12hr formats
-                //Textarea
-                //Show exisiting event text if any
-                //Save button
-                    //When clicked store/reset the event that matches w/hour to localStorage
-            //Check if hour is past, current or future and apply corresponding css class to time-block.
-
 
 //GLOBALS
 var mainEl = $('.container');
@@ -29,8 +16,10 @@ $('#currentDay').text(currentD);
 // append parent div to container
 
 while (startWorkDay.hour() < 18) {
-    // console.log(startWorkDay.hour());
-    var timeBLock = '<div id="hour'+ startWorkDay.hour()+'" class="row time-block">'+
+    //id=hourId + startWorkDay = gives the div row reference for each hour displayed in the in time-block.
+   
+    
+    var timeBLock = '<div id="hourId'+ startWorkDay.hour()+'" class="row time-block">'+
     '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
     +'<textarea class="col-md-9 description">'+'</textarea>'
     +'<button id="save" class="col-md-1 saveBtn">'+'</button>'+
@@ -40,7 +29,7 @@ while (startWorkDay.hour() < 18) {
 }
 
 //CHECKING CURRENT TIME:
-//use textarea id as a reference to display now
+
 // var now = moement().format('h A');
 // var hour = startWorkDay.format('h A');
 
@@ -62,15 +51,16 @@ while (startWorkDay.hour() < 18) {
 function storeItem(){
     //created vars to reference the value of textarea and the id of startWorkDay hour
     // targetting them using $(this) 
+    //.siblings('textarea') = textarea is the sibling of button tag in parent el ----- .val() gets value of anything typed into textarea
+    //.parent().attr('id') = targets the parent & then attr of button tag which is the div row containing id of hourID
+
     var text = $(this).siblings('textarea').val();
     console.log(text)
-    var idhour = $(this).parent().attr('id');
+    var hourId = $(this).parent().attr('id');
 
-    //text and idHour are references for localStroage does not need to be a string
-    localStorage.setItem(idhour, text);
-
+    //text and idHour are vars: no need for strings
+    localStorage.setItem(hourId, text);
 }
 
-
-
-
+// DISPLAY text saved to localStorage:
+$('#hour9').children('textarea').val(localStorage.getItem('hour9'));
