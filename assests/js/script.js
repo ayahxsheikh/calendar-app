@@ -30,7 +30,7 @@ $('#currentDay').text(currentD);
 
 while (startWorkDay.hour() < 18) {
     // console.log(startWorkDay.hour());
-    var timeBLock = '<div class="row time-block">'+
+    var timeBLock = '<div id="hour'+ startWorkDay.hour()+'" class="row time-block">'+
     '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
     +'<textarea class="col-md-9 description">'+'</textarea>'
     +'<button id="save" class="col-md-1 saveBtn">'+'</button>'+
