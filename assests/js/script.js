@@ -30,8 +30,8 @@ $('#currentDay').text(currentD);
 
 while (startWorkDay.hour() < 18) {
     var timeBLock = '<div class="row time-block">'+
-        '<div class="col-md-1 hour">'+startWorkDay.format('h A')+'</div>'
-        +'<textarea class="col-md-10 description">'+'</textarea>'
+        '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
+        +'<textarea class="col-md-9 description">'+'</textarea>'
         +'<button class="col-md-1 saveBtn">'+'</button>'+
         '</div>'
 
@@ -40,17 +40,18 @@ while (startWorkDay.hour() < 18) {
     }
 
 //CHECKING CURRENT TIME:
-/*
-var now = moement().format('HH A')
-var hour = 
 
-    if (hour < now){
-        textarea.addClass('.past');
+// var now = moement().format('HH A')
+// var hour;
 
-    } else if (hour > now){
-        textarea.addClass(.future)
+//     if (hour < now){
+//         textarea.addClass('.past');
 
-    } else hour = textarea.addClass('.present')
+//     } else if (hour > now){
+//         textarea.addClass('.future')
 
-*/
+//     } else hour = textarea.addClass('.present')
+
+
+
 
