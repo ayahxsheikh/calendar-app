@@ -25,32 +25,40 @@ $('#currentDay').text(currentD);
 
 // CREATE TIME BLOCK 
 // created html elements inside the timeblock 
-// created a div inside the time block and then created multiple elements inside the parent time-block div
+// created div inside time-block then created multiple els inside parent time-block div
 // append parent div to container
 
 while (startWorkDay.hour() < 18) {
     var timeBLock = '<div class="row time-block">'+
-        '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
-        +'<textarea class="col-md-9 description">'+'</textarea>'
-        +'<button class="col-md-1 saveBtn">'+'</button>'+
-        '</div>'
-
-        mainEl.append(timeBLock);
-        startWorkDay.add(1, 'hours');
-    }
+    '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
+    +'<textarea class="col-md-9 description">'+'</textarea>'
+    +'<button id="#save" class="col-md-1 saveBtn">'+'</button>'+
+    '</div>'
+    
+    mainEl.append(timeBLock);
+    startWorkDay.add(1, 'hours');
+}
 
 //CHECKING CURRENT TIME:
+//use textarea id as a reference to display now
+// var now = moement().format('h A');
+// var hour = startWorkDay.format('h A');
 
-var now = moement().format('h A');
-var hour = startWorkDay.format('h A');
+//     if (hour < now){
+//         textarea.addClass('.past');
 
-    if (hour < now){
-        textarea.addClass('.past');
+//     } else if (hour > now){
+    //         textarea.addClass('.future')
+    
+    //     } else hour = textarea.addClass('.present')
+    
+    
+//BUTTON
+    var button = $('#save');
+  
 
-    } else if (hour > now){
-        textarea.addClass('.future')
-
-    } else hour = textarea.addClass('.present')
+// SAVE TO LOCAL STORAGE
+// textarea needs id that saves text to button when clicked.
 
 
 
