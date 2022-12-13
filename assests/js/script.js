@@ -3,8 +3,6 @@
 //GLOBALS
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
-var timer;
-
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
@@ -65,11 +63,7 @@ $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
 
 
 // SET TIMEOUT
-var messageTimer = setTimeout(function(){
-    var div = '<div id="div">'+'</div>';
-    var pEl = '<p id="message" >'+'</p>';
-    mainEl.prepend(div);
-    $('#div').append(pEl);
+var displayMessage = setTimeout(function(){
 
 },3000)
 
