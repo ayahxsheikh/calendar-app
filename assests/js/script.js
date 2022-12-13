@@ -61,6 +61,16 @@ while (startWorkDay.hour() < 18) {
 
 // DISPLAY text saved to localStorage:
 $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
+$('#hour10').children('textarea').val(localStorage.getItem('hour10'));
+$('#hour11').children('textarea').val(localStorage.getItem('hour11'));
+$('#hour12').children('textarea').val(localStorage.getItem('hour12'));
+$('#hour1').children('textarea').val(localStorage.getItem('hour1'));
+$('#hour2').children('textarea').val(localStorage.getItem('hour2'));
+$('#hour3').children('textarea').val(localStorage.getItem('hour3'));
+$('#hour4').children('textarea').val(localStorage.getItem('hour4'));
+$('#hour5').children('textarea').val(localStorage.getItem('hour5'));
+
+
 
 
 // SET TIMEOUT
