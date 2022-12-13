@@ -23,8 +23,8 @@ The following animation demonstrates the application functionality:
 
 ## Links
 
-https://github.com/ayahxsheikh/calendar-app
+https://github.com/ayahxsheikh/work-schedule-app
 
-https://ayahxsheikh.github.io/calendar-app/ 
+https://ayahxsheikh.github.io/work-schedule-app/
 
 © 2022. All Rights Reserved.
