@@ -3,6 +3,7 @@
 //GLOBALS
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
+var timer;
 
 
 //CURRENT DAY
@@ -19,7 +20,7 @@ while (startWorkDay.hour() < 18) {
     //id=hourId + startWorkDay = gives the div row reference for each hour displayed in the in time-block.
    
     
-    var timeBLock = '<div id="hourId'+ startWorkDay.hour()+'" class="row time-block">'+
+    var timeBLock = '<div id="hour'+ startWorkDay.hour()+'" class="row time-block">'+
     '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
     +'<textarea class="col-md-9 description">'+'</textarea>'
     +'<button id="save" class="col-md-1 saveBtn">'+'</button>'+
@@ -44,23 +45,31 @@ while (startWorkDay.hour() < 18) {
     
 //BUTTON
     var button = $('.saveBtn');
-    button.on('click', storeItem);
+   button.on('click', storeItem);
 
 
 // SAVE TO LOCAL STORAGE
 function storeItem(){
-    //created vars to reference the value of textarea and the id of startWorkDay hour
-    // targetting them using $(this) 
-    //.siblings('textarea') = textarea is the sibling of button tag in parent el ----- .val() gets value of anything typed into textarea
-    //.parent().attr('id') = targets the parent & then attr of button tag which is the div row containing id of hourID
-
+    //created vars to reference the value of textarea and the id of startWorkDay hour -- targetting them using $(this) 
     var text = $(this).siblings('textarea').val();
     console.log(text)
-    var hourId = $(this).parent().attr('id');
+    var hour = $(this).parent().attr('id');
 
     //text and idHour are vars: no need for strings
-    localStorage.setItem(hourId, text);
+    localStorage.setItem(hour, text);
+   
 }
 
 // DISPLAY text saved to localStorage:
 $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
+
+
+// SET TIMEOUT
+var messageTimer = setTimeout(function(){
+    var div = '<div id="div">'+'</div>';
+    var pEl = '<p id="message" >'+'</p>';
+    mainEl.prepend(div);
+    $('#div').append(pEl);
+
+},3000)
+
