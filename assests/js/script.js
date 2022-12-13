@@ -18,7 +18,7 @@ var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
 
 
-// //CURRENT DAY
+//CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
 $('#currentDay').text(currentD);
 
@@ -41,16 +41,16 @@ while (startWorkDay.hour() < 18) {
 
 //CHECKING CURRENT TIME:
 
-// var now = moement().format('HH A')
-// var hour;
+var now = moement().format('h A');
+var hour = startWorkDay.format('h A');
 
-//     if (hour < now){
-//         textarea.addClass('.past');
+    if (hour < now){
+        textarea.addClass('.past');
 
-//     } else if (hour > now){
-//         textarea.addClass('.future')
+    } else if (hour > now){
+        textarea.addClass('.future')
 
-//     } else hour = textarea.addClass('.present')
+    } else hour = textarea.addClass('.present')
 
 
 
