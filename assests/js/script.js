@@ -29,12 +29,12 @@ $('#currentDay').text(currentD);
 // append parent div to container
 
 while (startWorkDay.hour() < 18) {
+    // console.log(startWorkDay.hour());
     var timeBLock = '<div class="row time-block">'+
     '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
     +'<textarea class="col-md-9 description">'+'</textarea>'
-    +'<button id="#save" class="col-md-1 saveBtn">'+'</button>'+
+    +'<button id="save" class="col-md-1 saveBtn">'+'</button>'+
     '</div>'
-    
     mainEl.append(timeBLock);
     startWorkDay.add(1, 'hours');
 }
@@ -55,16 +55,13 @@ while (startWorkDay.hour() < 18) {
     
 //BUTTON
     var button = $('.saveBtn');
-    button.on('click', function(){
-        console.log('clicked')
-    });
+    button.on('click', storeItem);
 
 
 // SAVE TO LOCAL STORAGE
-// function storeItem(){
-
-// }
-// textarea needs id that saves text to button when clicked.
+function storeItem(){
+    
+}
 
 
 
