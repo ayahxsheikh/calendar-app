@@ -54,10 +54,16 @@ while (startWorkDay.hour() < 18) {
     
     
 //BUTTON
-    var button = $('#save');
-  
+    var button = $('.saveBtn');
+    button.on('click', function(){
+        console.log('clicked')
+    });
+
 
 // SAVE TO LOCAL STORAGE
+// function storeItem(){
+
+// }
 // textarea needs id that saves text to button when clicked.
 
 
