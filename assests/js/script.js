@@ -2,6 +2,8 @@
 
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
+var hour;
+var currentTime;
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
@@ -37,10 +39,10 @@ function storeItem(){
     //created vars to reference the value of textarea and the id of startWorkDay hour -- targetting them using $(this) (refers to button)
     var text = $(this).siblings('textarea').val();
     console.log(text)
-    var hour = $(this).parent().attr('id');
+    var hourId = $(this).parent().attr('id');
     
     //text and idHour are vars: no need for strings
-    localStorage.setItem(hour, text);
+    localStorage.setItem(hourId, text);
     displayMessage();
 }
 
@@ -54,21 +56,21 @@ $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
 function checkCurrentTime(){
 
     $('.time-block').each(function (i){
-        var hour = $(this).attr('id');
-        var currentTime = moment().format('hh A');
-        // console.log(hour);
-        // console.log(currentTime);
+        hour = $(this).attr('id');
+        console.log(hour);
+    });
+        currentTime = moment().format('H A');
+        console.log(currentTime);
         
         if (currentTime === hour){
-            $('.time-block').children('.description').addClass('.present');
+            $('.time-block').children('.description').addClass('present');
             
-        } else if (currentTime > hour){
-            $('.time-block').children('.description').addClass('.past');
+        } else if (currentTime < hour){
+            $('.time-block').children('.description').addClass('past');
             
         } else 
-        $('.time-block').children('.description').addClass('.future');
+        $('.time-block').children('.description').addClass('future');
         
-    });
 
 };
 checkCurrentTime();
