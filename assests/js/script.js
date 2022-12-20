@@ -2,15 +2,14 @@
 
 var mainEl = $('.container');
 var startWorkDay = moment(09, 'h A');
-var hour;
-var currentTime;
+var hourId;
 
 //CURRENT DAY
 var currentD = moment().format('MMMM Do YYYY');
 $('#currentDay').text(currentD);
 
 
-// CREATE TIME BLOCK 
+// TIME BLOCK 
 // created html elements inside the timeblock 
 // created div inside time-block then created multiple els inside parent time-block div
 // append parent div to container
@@ -39,33 +38,46 @@ function storeItem(){
     //created vars to reference the value of textarea and the id of startWorkDay hour -- targetting them using $(this) (refers to button)
     var text = $(this).siblings('textarea').val();
     console.log(text)
-    var hourId = $(this).parent().attr('id');
+    hourId = $(this).parent().attr('id');
     
-    //text and idHour are vars: no need for strings
     localStorage.setItem(hourId, text);
     displayMessage();
+
 }
 
 // RETRIEVE text from localStorage: make into loop
-
 $('#hour9').children('textarea').val(localStorage.getItem('hour9'));
+$('#hour10').children('textarea').val(localStorage.getItem('hour10'));
+$('#hour11').children('textarea').val(localStorage.getItem('hour11'));
+$('#hour12').children('textarea').val(localStorage.getItem('hour12'));
+$('#hour1').children('textarea').val(localStorage.getItem('hour1'));
+$('#hour2').children('textarea').val(localStorage.getItem('hour2'));
+$('#hour3').children('textarea').val(localStorage.getItem('hour3'));
+$('#hour4').children('textarea').val(localStorage.getItem('hour4'));
+$('#hour5').children('textarea').val(localStorage.getItem('hour5'));
 
 
 
 //CHECKING CURRENT TIME:
-function checkCurrentTime(){
 
-    $('.time-block').each(function (i){
-        hour = $(this).attr('id');
-        console.log(hour);
+function checkCurrentTime(){
+    //loop over time-block to get id for each row
+    $('.time-block').each(function (){
+     return hourId = $(this).attr('id');
+        // console.log(hourId);
     });
-        currentTime = moment().format('H A');
-        console.log(currentTime);
         
-        if (currentTime === hour){
+        currentHour = moment().hours();
+        //   console.log(currentHour); 
+        
+        if (hourId == currentHour){
             $('.time-block').children('.description').addClass('present');
+            console.log(currentHour);
+            console.log(hourId);
             
-        } else if (currentTime < hour){
+        } else if (hourId < currentHour ){
+            // console.log(currentHour);
+            // console.log(hourId);
             $('.time-block').children('.description').addClass('past');
             
         } else 
