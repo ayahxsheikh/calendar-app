@@ -63,26 +63,28 @@ $('#hour5').children('textarea').val(localStorage.getItem('hour5'));
 function checkCurrentTime(){
     //loop over time-block to get id for each row
     $('.time-block').each(function (){
-     return hourId = $(this).attr('id');
+     hourId = $(this).attr('id').slice(4);
         // console.log(hourId);
-    });
         
         currentHour = moment().hours();
         //   console.log(currentHour); 
         
         if (hourId == currentHour){
-            $('.time-block').children('.description').addClass('present');
+            $(this).children('.description').addClass('present');
             console.log(currentHour);
             console.log(hourId);
             
         } else if (hourId < currentHour ){
             // console.log(currentHour);
             // console.log(hourId);
-            $('.time-block').children('.description').addClass('past');
+            $(this).children('.description').addClass('past');
             
-        } else 
-        $('.time-block').children('.description').addClass('future');
+        } else {
+            $(this).children('.description').addClass('future');
+
+        }
         
+    });
 
 };
 checkCurrentTime();
