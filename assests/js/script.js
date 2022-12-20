@@ -19,9 +19,9 @@ while (startWorkDay.hour() < 18) {
    
     
     var timeBLock = '<div id="hour'+ startWorkDay.hour()+'" class="row time-block">'+
-    '<div class="col-md-2 hour">'+startWorkDay.format('h A')+'</div>'
+    '<div class="col-md-2 hour">'+startWorkDay.format('h a')+'</div>'
     +'<textarea class="col-md-9 description">'+'</textarea>'
-    +'<button class="col-md-1 saveBtn">'+'</button>'+
+    +'<button class="col-md-1 saveBtn">'+'<i class="fas fa-save f0c7">'+'</i>'+'</button>'+
     '</div>'
     mainEl.append(timeBLock);
     startWorkDay.add(1, 'hours');
@@ -71,8 +71,8 @@ function checkCurrentTime(){
         
         if (hourId == currentHour){
             $(this).children('.description').addClass('present');
-            console.log(currentHour);
-            console.log(hourId);
+            // console.log(currentHour);
+            // console.log(hourId);
             
         } else if (hourId < currentHour ){
             // console.log(currentHour);
