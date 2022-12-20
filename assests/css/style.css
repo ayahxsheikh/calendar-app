@@ -73,8 +73,9 @@ textarea {
 
 p.message {
   text-align: center;
-  font-weight: bold;
+  font-weight: bolder;
   margin: 13px 0;
+  font-size: 14px;
 }
 
 .hide {
